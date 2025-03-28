@@ -6,11 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Set BUILD_ID for Next.js
+
+      - name: Set GITHUB_SHA for Next.js
+        if: matrix.service == 'app'
         run: |
-          echo "BUILD_ID=${{ github.sha }}" >> $GITHUB_ENV # Set BUILD_ID as an environment variable
-        
+          echo "GITHUB_SHA=${{ github.sha }}" >> $GITHUB_ENV
+
       - name: Debug GITHUB_SHA and BUILD_ID
         run: |
           echo "GITHUB_SHA value is: ${{ github.sha }}"
