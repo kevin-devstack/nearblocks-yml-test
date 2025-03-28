@@ -15,6 +15,6 @@ jobs:
       - name: Debug GITHUB_SHA and BUILD_ID
         run: |
           echo "GITHUB_SHA value is: ${{ github.sha }}"
-          echo "BUILD_ID value from env: $BUILD_ID" # Access the BUILD_ID environment variable
+          echo "GITHUB_SHA value from env: $GITHUB_SHA" # Access the GITHUB_SHA environment variable
           echo "Full github context:"
           echo "${{ toJSON(github) }}"
